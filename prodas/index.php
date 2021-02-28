@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h1>List Nama Hari</h1>
+    <h1>Daftar Nama Hari</h1>
     
     
     <?php
@@ -44,23 +44,23 @@
 
     <h3>Cari Nama Hari Berdasarkan Nomor Urut</h3>
     <form action="" method="POST">
-        <input type="text" name="nomor" size="20">
+        <input type="text" name="number" size="20">
         <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
 
     if(isset($_POST['submit'])) {
-        $no = (int) $_POST['nomor'];
+        $number = (int) $_POST['number'];
         $n = count($days);
         for ($i=1; $i<=$n; $i++) {
-            if ($i == $no) {
+            if ($i == $number) {
                 echo "Hari ". $days[$i-1];
             }
         }
 
         if($no <= 0 || $no > $n) {
-            echo "salah";
+            echo "Angka yang anda inputkan tidak ada";
         }
     }
     
