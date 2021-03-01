@@ -59,7 +59,7 @@
             }
         }
 
-        if($no <= 0 || $no > $n) {
+        if($number <= 0 || $number >= $n) {
             echo "Angka yang anda inputkan tidak ada";
         }
     }
