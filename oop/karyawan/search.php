@@ -52,23 +52,29 @@
             <tbody>
             <?php
                 require __DIR__.'/../app/models/Karyawan.php';
-                $karyawan = new Karyawan();
-                $no = 1;
-                foreach($karyawan->all() as $data):
-            ?>
-                <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $data->nama ?></td>
-                    <td><?= ($data->jk == 'L') ? "Laki-laki" : "Perempuan"; ?></td>
-                    <td><?= $data->alamat ?></td>
-                    <td><?= $data->umur ?></td>
-                    <td><?= $data->jabatan ?></td>
-                    <td>
-                        <a href="edit.php?id=<?= $data->id ?>">Edit</a> |
-                        <a href="delete.php?id=<?= $data->id ?>">Hapus</a> 
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+                if(isset($_POST['search'])) {
+                    $karyawan = new Karyawan();
+
+                    $keyword = $_POST['keyword'];
+                    $no = 1;
+                    foreach($karyawan->search($keyword) as $data):
+                    ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $data->nama ?></td>
+                            <td><?= ($data->jk == 'L') ? "Laki-laki" : "Perempuan"; ?></td>
+                            <td><?= $data->alamat ?></td>
+                            <td><?= $data->umur ?></td>
+                            <td><?= $data->jabatan ?></td>
+                            <td>
+                                <a href="edit.php?id=<?= $data->id ?>">Edit</a> |
+                                <a href="delete.php?id=<?= $data->id ?>">Hapus</a> 
+                            </td>
+                        </tr>
+                    <?php
+                        endforeach;
+                        }
+                    ?>
             </tbody>
         </table>
     </div>

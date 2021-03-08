@@ -27,17 +27,8 @@
             <textarea name="alamat" cols="30" rows="5"></textarea>
         </div>
         <div class="form-group">
-            <label for="">Umur</label>
-            <input type="number" name="umur">
-        </div>
-        <div class="form-group">
-            <label for="">Jabatan</label>
-            <select name="jabatan">
-                <option>----</option>
-                <option value="Manager">Manager</option>
-                <option value="HRD">HRD</option>
-                <option value="Karyawan">Karyawan</option>
-            </select>
+            <label for="">Email</label>
+            <input type="email" name="email">
         </div>
         <input type="submit" name="submit" value="Simpan">
     </form>

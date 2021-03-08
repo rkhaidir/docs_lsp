@@ -17,6 +17,7 @@
         <h2>DATA KARYAWAN</h2>
     </div>
 
+    <a href="create.php">Tambah Karyawan</a>
     <table>
         <thead>
             <tr>
@@ -44,7 +45,8 @@
             <td><?= $data['umur'] ?></td>
             <td><?= $data['jabatan'] ?></td>
             <td>
-
+                <a href="edit.php?id=<?= $data['id'] ?>">Edit</a> |
+                <a href="hapus.php?id=<?= $data['id'] ?>">Hapus</a>
             </td>
         </tr>
         <?php } ?>

@@ -19,6 +19,8 @@
     
     <?php
     $days = ["SENIN", "SELASA", "RABU", "KAMIS", "JUM'AT", "SABTU", "MINGGU"];
+	$sort = sort($days);
+	echo $sort;
     ?>
     <table>
         <thead>
@@ -30,7 +32,7 @@
         <tbody>
             <?php
             $no = 1;
-            foreach($days as $value) {
+            foreach($sort as $value) {
             ?>
             <tr>
                 <td><?php echo $no++; ?></td>

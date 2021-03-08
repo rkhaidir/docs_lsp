@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/../app/models/karyawan.php';
 $karyawan = new Karyawan();
-$karyawan = $karyawan->getById($_GET['id']);
+$karyawan = $karyawan->tampil_karyawan($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,17 +33,8 @@ $karyawan = $karyawan->getById($_GET['id']);
             <textarea name="alamat" cols="30" rows="5"><?= $karyawan->alamat ?></textarea>
         </div>
         <div class="form-group">
-            <label for="">Umur</label>
-            <input type="number" name="umur" value="<?= $karyawan->umur ?>">
-        </div>
-        <div class="form-group">
-            <label for="">Jabatan</label>
-			<select name="jabatan">
-                <option>----</option>
-                <option value="Manager" <?= $karyawan->jabatan == 'Manager' ? 'Selected' : '' ?>>Manager</option>
-                <option value="HRD" <?= $karyawan->jabatan == 'HRD' ? 'Selected' : '' ?>>HRD</option>
-                <option value="Karyawan" <?= $karyawan->jabatan == 'Karyawan' ? 'Selected' : '' ?>>Karyawan</option>
-            </select>
+            <label for="">Email</label>
+            <input type="email" name="email" value="<?= $karyawan->email ?>">
         </div>
         <input type="submit" name="submit" value="Simpan">
     </form>

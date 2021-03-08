@@ -27,6 +27,10 @@ class Model {
         return $this->pdo->getConnection()->query("select ".implode(',', $this->fields)." from ".$this->table." where id = ".$id)->fetchAll(PDO::FETCH_OBJ)[0];
     }
 
+    public function search($keyword) {
+        return $this->pdo->getConnection()->query("select ".implode(',', $this->fields)." from ".$this->table." where nama like '%$keyword%'")->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function insert($data) {
         array_shift($this->fields);
         $fields = implode(',', $this->fields);
