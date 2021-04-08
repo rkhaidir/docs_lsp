@@ -42,7 +42,7 @@ $bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agust
 
 	<!-- Buat action ketika inputan text diisi dan tombol ditekan dari form di atas -->
 	<?php
-
+	// mengecek angka yang diinputkan dan menyesuaikan dengan bulan
 	if(isset($_POST['cek']))
 	{
 		if($_POST['nomor'] == 1)

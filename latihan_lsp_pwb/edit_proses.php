@@ -7,6 +7,7 @@ if(isset($_POST['simpan']))
 	$address 	= $_POST['address'];
 	$email 		= $_POST['email'];
 
+	// kueri update
 	$query = mysqli_query($con, "UPDATE tb_karyawan SET 
 		nama 		= '$name',
 		alamat		= '$address',

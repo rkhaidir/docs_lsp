@@ -25,7 +25,9 @@ $query = mysqli_query($con, "SELECT * FROM tb_karyawan");
 		</thead>
 		<tbody>
 			<?php
+			// variabel $no digunakan penomoran
 			$no=1;
+			// menampilkan data dari database menggunakan perulangan
 			while($data = mysqli_fetch_array($query)) {
 				echo "
 				<tr>
@@ -40,6 +42,7 @@ $query = mysqli_query($con, "SELECT * FROM tb_karyawan");
 					</td>
 				</tr>
 				";
+				// variabel $no akan ditambah satu ketika satu perulangan selesai
 				$no++;
 			}
 			?>
@@ -56,12 +59,17 @@ $query = mysqli_query($con, "SELECT * FROM tb_karyawan");
 
 				// mengambil nilai attribut href
 				const href = hapus[i].getAttribute('href');
+
+				// mengambil nilai attribut data-id
 				const id = hapus[i].getAttribute('data-id');
 
+				// memunculkan alert konfirmasi
 				const konfirmasi = confirm(`Apakah anda yakin ingin menghapus ${id}?`);
 
 				if(konfirmasi == true) {
 					document.location.href = href;
+				} else {
+					return false;
 				}
 			})
 		}

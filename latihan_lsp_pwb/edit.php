@@ -1,5 +1,7 @@
 <?php
 require_once 'koneksi.php';
+
+// kueri untuk mengambil satu data dari tb_karyawan berdasarkan id yang dikirim dari url
 $query = mysqli_query($con, "SELECT * FROM tb_karyawan WHERE id_karyawan='$_GET[id]'");
 $data = mysqli_fetch_array($query);
 ?>
