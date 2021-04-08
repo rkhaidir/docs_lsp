@@ -14,13 +14,13 @@ if(isset($_POST['simpan']))
 		email 		= '$email'
 	");
 
+	
 	if($query) 
 	{
-		header('Location: index.php');
+		echo "<script>alert('Data Berhasil Diinput');window.location='index.php'; </script>";
 	}
 	else
 	{
-		echo "<script> alert('Data Gagal Diinput') </script>";
-		header('Location: tambah.php');
+		echo "<script>alert('Data Gagal Diinput');window.location='tambah.php'; </script>";
 	}
 }

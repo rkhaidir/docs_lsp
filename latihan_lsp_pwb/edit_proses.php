@@ -13,16 +13,13 @@ if(isset($_POST['simpan']))
 		email 		= '$email'
 		WHERE id_karyawan = '$id'
 	");
-	//header('Location: index.php');
 
 	if($query) 
 	{
-		header('Location: index.php');
-		echo "<script> alert('Data Berhasil Diedit') </script>";
+		echo "<script>alert('Data Berhasil Diedit');window.location='index.php'; </script>";
 	}
 	else
 	{
-		header("Location: edit.php?id=$id");
-		echo "<script> alert('Data Gagal Diedit') </script>";
+		echo "<script>alert('Data Gagal Diedit');window.location='edit.php?$id'; </script>";
 	}
 }

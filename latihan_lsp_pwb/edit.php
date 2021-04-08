@@ -10,7 +10,7 @@ $data = mysqli_fetch_array($query);
 </head>
 <body>
 	<h1>Ubah Data Karyawan</h1>
-	<form action="edit_proses.php" method="POST">
+	<form action="edit_proses.php" method="POST" onsubmit="return konfirmasi()">
 		<div>
 			<label>ID KARYAWAN</label>
 			<input type="text" name="id_karyawan" value="<?= $data['id_karyawan'] ?>" readonly>
@@ -29,5 +29,17 @@ $data = mysqli_fetch_array($query);
 		</div>
 		<input type="submit" name="simpan" value="Simpan">
 	</form>
+
+	<script type="text/javascript">
+		function konfirmasi() {
+			const konfirmasi = confirm('Apakah data yang anda inputkan sudah benar?');
+
+			if(konfirmasi == true) {
+				document.form.submit();
+			} else {
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>

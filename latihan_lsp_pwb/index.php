@@ -20,6 +20,7 @@ $query = mysqli_query($con, "SELECT * FROM tb_karyawan");
 				<th>Nama</th>
 				<th>Alamat</th>
 				<th>Email</th>
+				<th>Aksi</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,7 +36,7 @@ $query = mysqli_query($con, "SELECT * FROM tb_karyawan");
 					<td>$data[email]</td>
 					<td>
 						<a href='edit.php?id=$data[id_karyawan]'>Edit</a>
-						<a href='hapus.php?id=$data[id_karyawan]'>Hapus</a>
+						<a href='hapus.php?id=$data[id_karyawan]' class='hapus' data-id='$data[id_karyawan]'>Hapus</a>
 					</td>
 				</tr>
 				";
@@ -44,5 +45,26 @@ $query = mysqli_query($con, "SELECT * FROM tb_karyawan");
 			?>
 		</tbody>
 	</table>
+
+	<script>
+		const hapus = document.querySelectorAll('.hapus');
+		
+		for(let i=0; i<hapus.length; i++) {
+			hapus[i].addEventListener('click', (event) => {
+				// menghentikan event ketika diclik
+				event.preventDefault();
+
+				// mengambil nilai attribut href
+				const href = hapus[i].getAttribute('href');
+				const id = hapus[i].getAttribute('data-id');
+
+				const konfirmasi = confirm(`Apakah anda yakin ingin menghapus ${id}?`);
+
+				if(konfirmasi == true) {
+					document.location.href = href;
+				}
+			})
+		}
+	</script>
 </body>
 </html>
